@@ -9,9 +9,9 @@ class Screens {
 public:
     // Method to display the bank name
     static void bankName() {
-        cout << "===================================\n";
+        cout << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n";
         cout << "            Route Bank             \n";
-        cout << "===================================\n";
+        cout << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n";
     }
 
     // Method to display a welcome message
@@ -123,7 +123,7 @@ public:
                 break;
             }
 
-            cout << "\n"; // Add space before next iteration
+            cout << "\n"; 
         }
     }
 
