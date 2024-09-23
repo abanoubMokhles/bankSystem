@@ -1,16 +1,16 @@
-#pragma once
+ #pragma once
 #include <iostream>
 #include <string>
 #include <vector>
 #include <unordered_map>
 #include "Employee.h"
-#include "Client.h" // Ensure this includes your Client class
+#include "Client.h" 
 
 using namespace std;
 
 class EmployeeManager {
 private:
-    static unordered_map<int, Employee*> employees; // Store employees by ID
+    static unordered_map<int, Employee*> employees; 
 
 public:
     // Method to print the employee menu
@@ -135,10 +135,7 @@ public:
         return true; // This line is technically unreachable
     }
 
-    // Method to add employees (for testing purposes)
-    static void addEmployee(Employee* employee) {
-        employees[employee->getId()] = employee;
-    }
+   
 };
 
 // Initialize static member
