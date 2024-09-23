@@ -7,7 +7,7 @@
 using namespace std;
 
 int main() {
-    // Optionally, initialize some sample data for testing
+    
     Admin* admin1 = new Admin(1, "Admin1", "adminpass", 5000);
     AdminManager::addAdmin(admin1);
 
@@ -19,11 +19,6 @@ int main() {
 
     // Run the application
     Screens::runApp();
-
-    // Clean up memory if needed
-    delete admin1;
-    delete employee1;
-    delete client1;
 
     return 0;
 }
