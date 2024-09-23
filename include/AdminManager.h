@@ -4,7 +4,7 @@
 #include <vector>
 #include <unordered_map>
 #include "Admin.h"
-#include "Employee.h" // Ensure this includes your Employee class
+#include "Employee.h"
 
 using namespace std;
 
@@ -116,10 +116,6 @@ public:
         return true; // This line is technically unreachable
     }
 
-    // Method to add admins (for testing purposes)
-    static void addAdmin(Admin* admin) {
-        admins[admin->getId()] = admin;
-    }
 };
 
 // Initialize static member
