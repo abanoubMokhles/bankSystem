@@ -3,13 +3,13 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include "Client.h" // Ensure this includes your Client class
+#include "Client.h" 
 
 using namespace std;
 
 class ClientManager {
 private:
-    static unordered_map<int, Client*> clients; // Store clients by ID
+    static unordered_map<int, Client*> clients; 
 
 public:
     // Method to print the client menu
@@ -96,13 +96,10 @@ public:
                 cout << "Invalid option. Please try again.\n";
             }
         }
-        return true; // This line is technically unreachable
+        return true; 
     }
 
-    // Method to add clients (for testing purposes)
-    static void addClient(Client* client) {
-        clients[client->getId()] = client;
-    }
+   
 };
 
 // Initialize static member
