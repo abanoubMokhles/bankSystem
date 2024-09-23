@@ -1,45 +1,29 @@
 #include <iostream>
-#include <Client.h>
-#include <Employee.h>
-#include <Admin.h>
+#include "Screens.h"
+#include "ClientManager.h"
+#include "EmployeeManager.h"
+#include "AdminManager.h"
+
 using namespace std;
 
-int main()
-{
-/*
-    Admin admin;
+int main() {
+    // Optionally, initialize some sample data for testing
+    Admin* admin1 = new Admin(1, "Admin1", "adminpass", 5000);
+    AdminManager::addAdmin(admin1);
 
-    admin.setId(1);
-    admin.setName("ccatcat");
-    admin.setPassword("12312345678bdf");
-    admin.setSalary(30000);
+    Employee* employee1 = new Employee(2, "Employee1", "emp1pass", 3000);
+    EmployeeManager::addEmployee(employee1);
 
-    admin.display();
-*/
-/*
-    Employee emp;
+    Client* client1 = new Client(3, "Client1", "client1pass", 2000);
+    ClientManager::addClient(client1);
 
-    emp.setId(1);
-    emp.setName("cbababab");
-    emp.setPassword("123");
-    emp.setSalary(3000);
+    // Run the application
+    Screens::runApp();
 
-    emp.display();
+    // Clean up memory if needed
+    delete admin1;
+    delete employee1;
+    delete client1;
 
-    /*
-    Client c1(5842, "Ahmed Said", "123", 2000);
-    Client c2(9887, "Mohamed Ali", "000", 2500);
-
-    c1.display();
-    c2.display();
-
-
-    c1.withdraw(200);
-    c2.deposit(100);
-    c1.transferto(c2, 200);
-
-    c1.display();
-    c2.display();
-    cout << "Hello world!" << endl; */
     return 0;
 }
