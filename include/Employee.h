@@ -12,12 +12,14 @@ protected:
     double salary;
 
 public:
-    Employee(){
-        this->salary = 0;
+
+    Employee() : Person() {
+        salary = 0;
     }
-    Employee(string &name, string &password, int id, double salary): Person(name, password, id){
-        this->salary = salary;
+    Employee(int id, string name, string password, double salary) : Person(id, name, password) {
+        setSalary(salary);
     }
+ 
     // Setter Functions
     void setId(int empId) {
         id = empId;
@@ -27,40 +29,12 @@ public:
         if(Validation::validateName(empName)){
             this->name = empName;
         }
-        /*if (empName.length() >= 5 && empName.length() <= 20) {
-            for (char c : empName) {
-                if (!isalpha(c)) {
-                    cout << "Name must only contain alphabetic characters." << endl;
-                    return;
-                }
-            }
-
-        } else {
-            cout << "Name must be between 5 and 20 characters long." << endl;
-        }*/
     }
 
     void setPassword(const string& empPassword) {
         if(Validation::validatePassword(empPassword)){
             this->password = empPassword;
         }
-        /*if (empPassword.length() >= 8 && empPassword.length() <= 20) {
-            password = empPassword;
-        } else {
-            cout << "Password must be between 8 and 20 characters long." << endl;
-        }*/
-    }
-
-    void setSalary(double empSalary) {
-        if(Validation::validateSalary(empSalary)){
-            this->salary = empSalary;
-        }
-
-        /*if (empSalary >= 5000) {
-            salary = empSalary;
-        } else {
-            cout << "Salary must be at least 5000." << endl;
-        }*/
     }
 
     // Getter Functions
@@ -76,14 +50,44 @@ public:
         return password;
     }
 
+    // Display Function
+
+    void setSalary(double salary) {
+        if (Validation::validateSalary(salary))
+            this->salary = salary;
+        else cout << "Invalid salary\n";
+    }
+
     double getSalary() {
         return salary;
     }
 
-    // Display Function
     void display() {
-        cout << "Employee ID: " << id << endl;
-        cout << "Name: " << name << endl;
-        cout << "Salary: $" << salary << endl;
+        Person::display();
+        cout << "Salary : " << salary << endl;
+    }
+
+    void addClient(Client& client) {
+        allClients.push_back(client);
+    }
+
+    Client* searchClient(int id) {
+        for (clIt = allClients.begin(); clIt != allClients.end(); clIt++) {
+            if (clIt->getID() == id) return clIt._Ptr;
+        }
+        return NULL;
+    }
+
+    void listClient() {
+        for (clIt = allClients.begin(); clIt != allClients.end(); clIt++) {
+            clIt->display();
+            cout << "-------------------------\n";
+        }
+    }
+
+    void editClient(int id, string name, string password, double balance) {
+        searchClient(id)->setName(name);
+        searchClient(id)->setPassword(password);
+        searchClient(id)->setBalance(balance);
     }
 };
